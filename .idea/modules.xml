@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/JavaTest.iml" filepath="$PROJECT_DIR$/.idea/JavaTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/modul_02_java_test_b2001/module_02_test/midterm-batch-1902.iml" filepath="$PROJECT_DIR$/modul_02_java_test_b2001/module_02_test/midterm-batch-1902.iml" />
+    </modules>
+  </component>
+</project>
