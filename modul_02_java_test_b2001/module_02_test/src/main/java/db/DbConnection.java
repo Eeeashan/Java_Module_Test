@@ -1,4 +1,3 @@
-/*
 package db;
 
 import java.io.FileInputStream;
@@ -11,14 +10,12 @@ import java.util.Properties;
 
 public class DbConnection {
 
-    */
-/**
+    /**
      *
      * This is a helper class to interact with MySQL Database tables
      * You are free to enhance this class as needed
      *
-     * *//*
-
+     * */
 
 
    static Connection connect = null;
@@ -29,7 +26,7 @@ public class DbConnection {
 
    public static Properties loadProperties() throws IOException {
 
-       InputStream inputStream = new FileInputStream("src/main/resources/secret.properties");
+       InputStream inputStream = new FileInputStream("C:\\Users\\easha\\OneDrive\\Desktop\\JavaTest\\modul_02_java_test_b2001\\module_02_test\\src\\main\\resources\\secret.properties");
 
        Properties properties = new Properties();
        properties.load(inputStream);
@@ -41,60 +38,52 @@ public class DbConnection {
 
       Properties properties = loadProperties();
 
-        String url = properties.getProperty("MYSQL.url");
-        String userName = properties.getProperty("MYSQL.userName");
-        String passWord = properties.getProperty("MYSQL.password");
+        String url = properties.getProperty("PSQL.url");
+        String userName = properties.getProperty("PSQL.user");
+        String passWord = properties.getProperty("PSQL.pw");
 
-         Class.forName("com.mysql.jdbc.Driver");
+         Class.forName("org.postgresql.Driver");
 
          connect = DriverManager.getConnection(url,userName,passWord);
 
         System.out.println("Database Connected");
 
     }
-    */
-/**
+    /**
      * Read database
      *
-     * *//*
+     * */
 
-
-    public static List<String> readDatabase(String tableNmae, String nameOfColumn1) throws SQLException, ClassNotFoundException, IOException {
+    public static List<String> readDatabase() throws SQLException, ClassNotFoundException, IOException {
 
         List<String> list = new ArrayList<>();
 
         connectMySql();
         statement = connect.createStatement();
-        resultSet = statement.executeQuery("select * from "+ tableNmae);
-        list = getResultSetData(nameOfColumn1);
+        resultSet = statement.executeQuery("select * from salary" );
+        resultSet.next();
+        list = getResultSetData("id","last_name","first_name");
         return list;
     }
 
-    public static List<String> getResultSetData(String nameOfColumn1) throws SQLException {
-
+    public static List<String> getResultSetData(String id, String nameOfColumn1) throws SQLException, IOException, ClassNotFoundException {
         List<String> dataList = new ArrayList<>();
-
+        connectMySql();
         while (resultSet.next()){
-
             String cell1 = resultSet.getString(nameOfColumn1);
-
-
             dataList.add(cell1);
-
         }
-
         return dataList;
-
     }
 
-    public static List<String> readDatabase(String tableNmae, String nameOfColumn1,String nameOfColumn2, String nameOfColumn3) throws SQLException, ClassNotFoundException, IOException {
+    public static List<String> readDatabase(String tableName, String nameOfColumn1,String nameOfColumn2, String nameOfColumn3) throws SQLException, ClassNotFoundException, IOException {
 
         List<String> list = new ArrayList<>();
 
         connectMySql();
         statement = connect.createStatement();
-        resultSet = statement.executeQuery("select * from "+ tableNmae);
-        list = getResultSetData(nameOfColumn1,nameOfColumn2,nameOfColumn3);
+        resultSet = statement.executeQuery("select * from "+ "salary");
+        list = getResultSetData("id","last_name","first_name");
         return list;
     }
 
@@ -116,13 +105,11 @@ public class DbConnection {
 
     }
 
-    */
-/**
+    /**
      *
      * Create Table
      *
-     * *//*
-
+     * */
 
     public static void createTableFromStringToMySql(String tableName, String columnName){
         try {
@@ -142,13 +129,11 @@ public class DbConnection {
 
     }
 
-    */
-/**
+    /**
      *
      * Insert data to a existing table
      *
-     * *//*
-
+     * */
     public static void insertDataFromArrayListToMySql(List<String> list,String tableName, String columnName)
     {
         try {
@@ -172,4 +157,3 @@ public class DbConnection {
 
 }
 
-*/

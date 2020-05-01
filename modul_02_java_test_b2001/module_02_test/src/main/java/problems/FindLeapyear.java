@@ -1,5 +1,7 @@
 package problems;
 
+import java.util.Scanner;
+
 public class FindLeapyear {
 
     /**
@@ -8,11 +10,20 @@ public class FindLeapyear {
      *
      * */
     public static void main(String[] args) {
-        findLeapyear(55);
+        findLeapyear();
     }
+    private static void findLeapyear() {
+        System.out.println("Enter Year");
+        Scanner scanner = new Scanner(System.in);
+        int year = scanner.nextInt();
 
-    private static void findLeapyear(int year) {
-
+        if (year % 400 == 0) {
+            System.out.println( year + " Leap Year");
+        } else if (year % 4 == 0 && year % 100 != 0) {
+            System.out.println( year+ " Leap Year");
+        } else {
+            System.out.println( year + " Not a Leap Year");
+        }
 
 
     }

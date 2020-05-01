@@ -1,5 +1,11 @@
 package accounts;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
+import static db.DbConnection.connectMySql;
+import static db.DbConnection.readDatabase;
+
 public class App {
 
     /**
@@ -8,7 +14,9 @@ public class App {
      *
      * */
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException, IOException, ClassNotFoundException {
         // Implement here
+        connectMySql();
+
     }
 }
