@@ -1,4 +1,4 @@
-package java.io;
+package io_problem;
 
 public class ReadFromAFileAndWriteInAnotherFile {
 

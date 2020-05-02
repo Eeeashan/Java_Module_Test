@@ -1,6 +1,8 @@
 package inheritance;
 
-public class Nokia1100 {
+public class Nokia1100 implements SymbianPhone {
+
+   PreNokia1100 prototype;
 
 
     /**
@@ -9,5 +11,20 @@ public class Nokia1100 {
      * Implement a method to add photo gallery photoGallery()
      * Create default constructor and a parameterized constructor with int x parameter
      * */
+
+    public void display(){
+       System.out.println("From Display Method");
+    }
+
+   @Override
+   public void sendText() {
+
+   }
+
+   public void makeCall(){
+       System.out.println("From makeCall Method");
+
+    }
+
 
    }

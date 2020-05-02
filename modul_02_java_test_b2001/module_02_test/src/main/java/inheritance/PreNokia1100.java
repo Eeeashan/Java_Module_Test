@@ -14,9 +14,14 @@ public abstract class PreNokia1100 implements SymbianPhone {
      *
      * */
 
+    private String nameOfTdheClas;
+
     public void sendText() {
 
+        System.out.println("Sending text now");
     }
+
+    public abstract void display();
 
     public abstract void makeCall();
 
